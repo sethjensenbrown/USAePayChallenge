@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="coding challenge for USAePay">
+        <meta name="author" content="Seth Jensen Brown">
+        <title>USAePay Coding Challenge</title>
+        <!-- Bootstrap core CSS -->
+        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="style.css" rel="stylesheet">
+        <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    </head>
+    <body>
+        <div class="container">
+            <header class="header clearfix">
+                <h3 class="text-muted">Seth's Surf Shop</h3>
+            </header>
+            <section id="select-board">
+                <div class="row">
+                    <div class="col-md-4 board-item" id="board-short">
+                        <h3>Shortboard</h3>
+                        <img src="http://res.cloudinary.com/sethjensenbrown/image/upload/v1510219945/oamiwuymnvuxcbcfr6cq.jpg" class="board-img" /> 
+                        <p>This board is 6', with a wedge shape. It is perfect for bigger waves and experienced riders.</p>
+                        <p><strong>Price: $<span class="price">500.00</span></strong></p>
+                        <button type="button" class="btn btn-primary" id="buy-short">Buy</button>                         
+                    </div>
+                    <div class="col-md-4 board-item" id="board-fun">
+                        <h3>Funboard</h3>
+                        <img src="http://res.cloudinary.com/sethjensenbrown/image/upload/v1510220144/kukqbkunx8jmby09rb1e.jpg" class="board-img" /> 
+                        <p>This board is 7'5", with a fish shape. It is a great board for any condition and intermediate riders.</p>
+                        <p><strong>Price: $<span class="price">650.00</span></strong></p>
+                        <button type="button" class="btn btn-primary" id="buy-fun">Buy</button>
+                    </div>
+                    <div class="col-md-4 board-item" id="board-long">
+                        <h3>Longboard</h3>
+                        <img src="http://res.cloudinary.com/sethjensenbrown/image/upload/v1510635595/hbjb8jjwztzbcbvgd3hv.jpg" class="board-img" /> 
+                        <p>This board is 9' with a classic log shape. It is perfect for small waves and for beginners.</p>
+                        <p><strong>Price: $<span class="price">800.00</span></strong></p>
+                        <button type="button" class="btn btn-primary" id="buy-long">Buy</button>                         
+                    </div>
+                </div>
+            </section>
+            <section id="buy-board" class="hide">
+                <div class="row">
+                    <div class="col-md-4" id="board-container">
+                        <!-- Will be filled with selected board info upon selection -->
+                    </div>
+                    <div class="col-md-6"> 
+                        <form role="form" id="purchase-board" class="board-form"> 
+                            <div class="form-group"> 
+                                <label class="control-label" for="name">Name</label>                                 
+                                <input type="text" class="form-control" id="name" name="cardholder" placeholder="Kelly Slater" value="Kelly Slater"> 
+                            </div>                             
+                            <div class="form-group"> 
+                                <label class="control-label" for="card-number">Card Number</label>                                 
+                                <input type="number" class="form-control" id="card-number" name="number" placeholder="1234 5678 8765 4321" value="4000100011112224"> 
+                            </div>                             
+                            <div class="form-group"> 
+                                <label class="control-label" for="card-exp">Expiration Date</label>                                 
+                                <input type="text" class="form-control" id="card-exp" name="expiration" placeholder="0118" value="0218">
+                            </div>                             
+                            <div class="form-group"> 
+                                <label class="control-label" for="cvc">CVC</label>                                 
+                                <input type="number" class="form-control" id="cvc" name="cvc" placeholder="123" value="123">
+                            </div>
+                            <div class="form-group"> 
+                                <label class="control-label" for="address">Billing Address</label>                                 
+                                <input type="text" class="form-control" id="address" name="avs_street" placeholder="1234 Main St" value="1234 Main St">
+                            </div>
+                            <div class="form-group"> 
+                                <label class="control-label" for="zip">Zip Code</label>                                 
+                                <input type="number" class="form-control" id="zip" name="avs_zip" placeholder="12345" value="12345">
+                            </div>                             
+                            <button type="submit" class="btn btn-primary">Purchase</button>                             
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <section id="sold-board" class="hide">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3>Congratulations! Your purchase was succesful!</h3> 
+                        <p>Please come again when you're ready for your next board!</p>
+                        <button type="button" id="refresh-button" class="btn btn-primary">Back to Home</button>
+                    </div>
+                </div>
+            </section>
+            <footer class="footer">
+                <p>© Seth's Surf Shop 2018 (not actually, just for fun)</p>
+            </footer>
+        </div>
+        <div id="overlay">
+            <div class="spinner"></div>
+        </div>
+        <!-- Bootstrap core JavaScript
+    ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="assets/js/jquery.min.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <!--link to app.js-->
+        <script src="app.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
+    </body>
+</html>
