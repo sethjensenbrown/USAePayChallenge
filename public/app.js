@@ -1,11 +1,3 @@
-const API_URL = 'https://cors-anywhere.herokuapp.com/https://sandbox.usaepay.com/api/v2/transactions';
-const API_KEY = '_AlK02587rBXT03ygn890rqDl3xOwc8g';
-const SEED = 'abcdefghijklmnop';
-//hashed using an online generator
-const API_PREHASH = 'c887d48e02b0e75de7fd95fe29bdb3bddaf982105db3d9bdf0c942002cb77c9e';
-const API_HASH = 's2/' + SEED + '/' + API_PREHASH;
-const AUTH_KEY = window.btoa(API_KEY + ":" + API_HASH);
-
 //Event Listener for "buy" button under short board
 $('#buy-short').on('click', event => {
 	event.preventDefault();
@@ -52,14 +44,11 @@ $('#purchase-board').on('submit', event => {
 	});
 	//get price of board
 	let price = $('#board-container > p > strong > span.price').text();
-	//configure authorization header
-	let authorization = "Basic " + AUTH_KEY;
 	//setup request and AJAX settings
 	let settings = {
 		method: "POST",
 		headers: {
-			"Content-Type": "application/json",
-			"Authorization": authorization
+			"Content-Type": "application/json"
 		},
 		dataType: "json",
 		data: JSON.stringify({
@@ -69,7 +58,7 @@ $('#purchase-board').on('submit', event => {
 		}),
 		error: (err, message) => {
 			$('body').removeClass('loading');
-			alert("There was a server error while processing your transaction, please try again or contact the system administrator. Error Message: " + message);
+			alert("There was a server error while processing your transaction, please try again or contact the system administrator.");
 			console.log(err);
 		},
 		success: res => {
@@ -86,7 +75,7 @@ $('#purchase-board').on('submit', event => {
 	};
 	//make AJAX request
 	$('body').addClass('loading');
-	$.ajax(API_URL, settings);
+	$.ajax('/', settings);
 });
 
 //event listener for "buy another board" button on board-sold section
@@ -94,7 +83,3 @@ $('#refresh-button').on('click', event => {
 	event.preventDefault();
 	window.location.reload();
 });
-
-
-
-
